@@ -1,0 +1,39 @@
+name: Sync Prof Tutorials
+
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'  # 07:00 UTC every weekday
+  workflow_dispatch:       # Allows manual 1-click run from GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Team Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git Author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync Tutorials
+        run: |
+          git clone --depth=1 https://github.com/graziasveva/innovation-management-datascience26.git /tmp/prof_repo
+          # Copy tutorial folders into notebooks/upstream
+          mkdir -p notebooks/upstream
+          cp -r /tmp/prof_repo/tutorial_* notebooks/upstream/
+          
+          # Commit only if changes exist
+          if [ -n "$(git status --porcelain notebooks/upstream)" ]; then
+            git add notebooks/upstream
+            git commit -m "chore(tutorials): sync latest materials from prof repo"
+            git push origin HEAD
+          else
+            echo "No new tutorial updates found."
+          fi

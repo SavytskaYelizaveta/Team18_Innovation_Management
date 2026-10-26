@@ -1,0 +1,41 @@
+sector:
+  name: "Smart Glasses"
+  time_window:
+    start_year: 2000
+    end_year: 2022
+  time_columns:
+    family: "earliest_filing_year"
+    application: "appln_filing_year"
+  truncated_years:
+    appln_filing_year: 3
+    earliest_filing_year: 3
+    earliest_publn_year: 1
+  ipr_type: "PI"
+  ip5_offices:
+    - "EP"
+    - "US"
+    - "CN"
+    - "JP"
+    - "KR"
+
+technology_filter:
+  core_cpc:
+    - "G02B27/017"      # Head mounted display
+    - "G02B2027/0178"   # Eyeglass type
+    - "G02C7/08"        # Auxiliary lenses / variable focal length
+    - "G02C11/06"       # Spectacles with hearing aids
+    - "G02C11/10"       # Spectacles with electronic devices
+  secondary_cpc:
+    - "G06T19/006"      # Augmented reality
+    - "G06F1/163"       # Wearable computers
+    - "G06F3/012"       # Head tracking
+    - "G06F3/013"       # Eye tracking
+    - "G09G5/00"        # Display control
+    - "H04N13/332"      # Near-eye display
+  keywords:
+    - "smart glass"
+    - "smartglasses"
+    - "eyeglass"
+    - "spectacles"
+    - "head-mounted display"
+    - "near-eye display"

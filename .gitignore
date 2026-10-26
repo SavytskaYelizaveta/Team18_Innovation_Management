@@ -1,16 +1,13 @@
-# Jupyter
-.ipynb_checkpoints/
-
-# Outputs produced by the notebooks
-outputs/
-*.parquet
+# Data (never commit bulk extracts)
+data/
+outputs/step1/
 *.csv
+*.parquet
 
-# Python
+# Python & Jupyter
 __pycache__/
-*.pyc
+*.py[cod]
+.ipynb_checkpoints/
+.env
+venv/
 .venv/
-
-# OS
-.DS_Store
-Thumbs.db
