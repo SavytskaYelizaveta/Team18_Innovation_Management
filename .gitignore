@@ -1,7 +1,8 @@
-# Data (never commit bulk extracts)
+# Data
 data/
 outputs/step1/
 *.csv
+!notebooks/upstream/**/*.csv
 *.parquet
 
 # Python & Jupyter
